@@ -9,18 +9,18 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=kanban
-      - POSTGRES_USER=kanban
-      - POSTGRES_PASSWORD=kanban
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   kanban-app:
     build: ./kanban-app
     container_name: kanban-app
     environment:
-      - DB_SERVER=kanban-postgres
-      - POSTGRES_DB=kanban
-      - POSTGRES_USER=kanban
-      - POSTGRES_PASSWORD=kanban
+      - DB_SERVER=${DB_SERVER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - 8080:8080
     links:
